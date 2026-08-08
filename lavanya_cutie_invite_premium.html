@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>for cutie ♡</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+body{background:#09080c;color:#fff;overflow:hidden}
+body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(70px);opacity:.25;pointer-events:none}
+body:before{width:320px;height:320px;background:#ff6397;top:-100px;left:-90px}
+body:after{width:360px;height:360px;background:#735cff;right:-120px;bottom:-120px}
+.app{height:100%;display:grid;place-items:center;padding:14px}
+.phone{width:min(430px,94vw);height:min(760px,94vh);min-height:600px;position:relative;overflow:hidden;border:1px solid #ffffff18;border-radius:36px;background:#0e0d13cc;box-shadow:0 35px 100px #000b}
+.screen{position:absolute;inset:0;padding:27px;overflow:auto;scrollbar-width:none}.screen::-webkit-scrollbar{display:none}
+.top{display:flex;justify-content:space-between;align-items:center;color:#77727f;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.lock{color:#ff8caf}
+h1{font-size:49px;line-height:.9;letter-spacing:-.055em;margin:90px 0 20px}
+h1 em{color:#ff82a9;font-style:normal}
+p{color:#aaa3b0;line-height:1.65;font-size:14px}
+button{font:inherit;cursor:pointer}
+.primary{border:0;background:#ff739e;color:#210b15;font-weight:900;padding:15px 18px;border-radius:17px;box-shadow:0 12px 35px #ff739e28}
+.ghost{border:1px solid #ffffff12;background:#ffffff08;color:#eee;padding:14px 17px;border-radius:17px}
+.full{width:100%;margin-top:22px}
+.hint{text-align:center;font-size:11px;color:#625d69;margin-top:18px}
+.reveal{margin-top:35px;min-height:120px;border:1px dashed #ffffff18;border-radius:24px;display:grid;place-items:center;text-align:center;padding:20px;color:#77717d}
+.reveal b{color:#eee}.hide{display:none!important}
+
+.overlay{position:absolute;inset:0;background:#100f15;transform:translateY(105%);transition:transform .65s cubic-bezier(.7,-.08,.2,1);z-index:5;padding:27px;overflow:auto;border-radius:36px}
+.overlay.open{transform:translateY(0)}
+.close{border:0;background:transparent;color:#77717f;padding:0}
+.tag{font-size:10px;letter-spacing:.13em;color:#77717f;text-transform:uppercase;margin-top:45px}
+.title{font-size:37px;line-height:1;letter-spacing:-.04em;margin:10px 0 15px}
+.rose{color:#ff83aa}.box{margin-top:25px;padding:18px;border-radius:22px;background:#ffffff07;border:1px solid #ffffff0b}
+.option{display:block;width:100%;margin:9px 0;text-align:left;border:1px solid #ffffff10;background:#ffffff07;color:#eee;padding:15px;border-radius:17px}
+.option:hover{background:#ff739e16;border-color:#ff739e55}
+.route{display:flex;align-items:center;justify-content:space-between;margin:35px 0 20px}
+.city{text-align:center}.city strong{display:block;font-size:22px}.city small{color:#77717f}.line{height:1px;flex:1;background:linear-gradient(90deg,#ff739e,#7a6cff);margin:0 14px;position:relative}.car{position:absolute;left:43%;top:-13px}
+.secret{min-height:120px;display:grid;place-items:center;text-align:center;border-radius:24px;background:radial-gradient(circle,#ff739e14,transparent 65%);border:1px solid #ffffff09}
+.cardmini{padding:20px;border-radius:22px;background:#fff;color:#18131a;transform:rotate(-2deg);box-shadow:0 20px 40px #0006}
+.cardmini small{display:block;color:#777;margin-top:8px}.scribble{font-family:cursive;font-size:23px}
+
+.final{text-align:center;padding-top:70px}.final .heart{font-size:70px;animation:bob 1.8s infinite}.final h2{font-size:43px;line-height:.95;letter-spacing:-.05em;margin:15px 0}.final b{color:#ff83aa}
+@keyframes bob{50%{transform:translateY(-10px) rotate(5deg)}}
+.conf{position:fixed;z-index:30;pointer-events:none;font-size:20px;animation:fall 1.7s forwards}@keyframes fall{to{transform:translate(var(--x),var(--y)) rotate(500deg);opacity:0}}
+.toast{position:fixed;z-index:40;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#17131a;border-radius:99px;padding:12px 17px;font-size:12px;transition:.3s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ===== premium motion layer ===== */
+.phone{isolation:isolate}
+.phone:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:
+radial-gradient(circle at 15% 20%,#ff739e10 0 2px,transparent 3px),
+radial-gradient(circle at 80% 30%,#ffffff0d 0 1px,transparent 2px),
+radial-gradient(circle at 65% 75%,#8b7cff0d 0 2px,transparent 3px);background-size:180px 210px,130px 170px,220px 190px;animation:stars 14s linear infinite}
+.screen,.overlay{z-index:1}
+@keyframes stars{to{background-position:180px 210px,-130px 170px,220px -190px}}
+.screen{animation:screenIn .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes screenIn{from{opacity:0;transform:scale(.97) translateY(12px)}to{opacity:1;transform:none}}
+.overlay.open{animation:overlayGlow .65s}
+@keyframes overlayGlow{0%{box-shadow:inset 0 0 0 #ff739e00}45%{box-shadow:inset 0 0 70px #ff739e0b}100%{box-shadow:inset 0 0 0 #ff739e00}}
+.overlay.open .tag,.overlay.open .title,.overlay.open>p,.overlay.open>.box,.overlay.open>.route,.overlay.open>.cardmini,.overlay.open>.secret,.overlay.open>.full{animation:itemIn .65s both}
+.overlay.open .tag{animation-delay:.08s}.overlay.open .title{animation-delay:.13s}.overlay.open>p{animation-delay:.18s}
+@keyframes itemIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.primary,.ghost{transition:transform .18s,box-shadow .18s,filter .18s}
+.primary:hover,.ghost:hover{transform:translateY(-2px) scale(1.015);filter:brightness(1.06)}
+.primary:active,.ghost:active{transform:scale(.97)}
+.reveal{animation:floaty 3s ease-in-out infinite}
+@keyframes floaty{50%{transform:translateY(-4px)}}
+.reveal:hover{animation-play-state:paused}
+.box,.secret,.cardmini{transition:transform .35s,background .35s,border-color .35s}
+.box:hover,.secret:hover{transform:translateY(-3px);border-color:#ff739e2b;background:#ffffff0a}
+.cardmini{animation:cardFloat 4s ease-in-out infinite}
+@keyframes cardFloat{50%{transform:rotate(1.5deg) translateY(-4px)}}
+.route{position:relative}
+.line:before{content:"";position:absolute;left:0;right:0;top:-12px;height:25px;background:radial-gradient(circle,#ff82a9 0 1px,transparent 2px) 0 50%/28px 100%;opacity:.25;animation:roadDots .8s linear infinite}
+@keyframes roadDots{to{background-position:28px 50%}}
+.car{display:inline-block;transition:left 1.8s cubic-bezier(.18,.8,.2,1);transform:scaleX(-1);animation:carIdle .8s ease-in-out infinite alternate}
+@keyframes carIdle{to{transform:scaleX(-1) translateY(-2px)}}
+.car.drive{left:calc(100% - 27px);animation:carDrive .18s linear infinite alternate}
+@keyframes carDrive{to{transform:scaleX(-1) translateY(-1px) rotate(-1deg)}}
+.secret:not(.hide){animation:secretPop .5s cubic-bezier(.2,1.5,.4,1)}
+@keyframes secretPop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.final .heart{animation:bob 1.8s infinite,heartGlow 1.8s infinite}
+@keyframes heartGlow{50%{text-shadow:0 0 35px #ff739e77}}
+.final h2{animation:finalIn .9s .15s both}
+@keyframes finalIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.sound-toggle{position:fixed!important;right:16px;bottom:16px;z-index:50;width:42px;height:42px;border-radius:50%;border:1px solid #ffffff18;background:#ffffff0c;color:#fff;backdrop-filter:blur(10px);cursor:pointer}
+.spark{position:absolute;pointer-events:none;animation:sparkFly 1s forwards}
+@keyframes sparkFly{to{transform:translate(var(--sx),var(--sy)) rotate(160deg) scale(.2);opacity:0}}
+
+</style>
+</head>
+<body>
+<div class="app"><main class="phone">
+
+<section class="screen" id="main">
+<div class="top"><span>private little thing</span><span class="lock">♡ for cutie</span></div>
+<h1>okay <em>Lavanya</em>…<br>this is for you.</h1>
+<p>I had an idea. Then I made it unnecessarily cute. So now you have to see it.</p>
+
+<div class="reveal" id="reveal" onclick="reveal()">
+  <div>there's something hiding here 👀<br><span style="font-size:11px">tap me</span></div>
+</div>
+
+<button class="primary full hide" id="continue" onclick="openPage('page1')">fine, show me →</button>
+<div class="hint">no pressure. except the tiny amount of pressure I'm creating.</div>
+</section>
+
+<section class="overlay" id="page1">
+<button class="close" onclick="closePage()">← back</button>
+<div class="tag">01 / little application</div>
+<div class="title">Cutie,<br>you've been <span class="rose">selected.</span></div>
+<p>Not for anything serious. Relax. 😭</p>
+<p>Just for the extremely important role of <b>not letting me do fun things alone.</b></p>
+<div class="box">
+<div style="font-size:12px;color:#77717f">position</div>
+<div style="font-size:22px;margin-top:5px">✨ favourite company</div>
+<p style="margin-bottom:0">Requirements: good vibes, questionable humour, and being yourself.</p>
+</div>
+<button class="primary full" onclick="openPage('page2')">I accept the allegations →</button>
+</section>
+
+<section class="overlay" id="page2">
+<button class="close" onclick="openPage('page1')">← previous</button>
+<div class="tag">02 / logistics</div>
+<div class="title">A tiny distance<br>problem.</div>
+<p>One of us is in Agra. One of us is in Solan. Very inconvenient for two people who apparently need to stop doing things <i>akele akele.</i></p>
+<div class="route">
+<div class="city"><strong>Agra</strong><small>me</small></div><div class="line"><span class="car">🚗</span></div><div class="city"><strong>Solan</strong><small>you</small></div>
+</div>
+<button class="ghost full" onclick="route()">solve the distance problem ✨</button>
+<div class="secret hide" id="routeSecret" style="margin-top:15px"><div>okay… <b>worth the drive.</b><br><span style="font-size:12px;color:#777">don't screenshot that sentence.</span></div></div>
+<button class="primary full" onclick="openPage('page3')">one more thing →</button>
+</section>
+
+<section class="overlay" id="page3">
+<button class="close" onclick="openPage('page2')">← previous</button>
+<div class="tag">03 / classified</div>
+<div class="title">There may be<br>a <span class="rose">tiny clue.</span></div>
+<p>Something about a car, a certain drink, and a very specific flavour.</p>
+<div class="secret" id="secretBox" onclick="secretReveal()">
+<div>🔒<br><b>classified</b><br><span style="font-size:11px">tap to unlock</span></div>
+</div>
+<p id="secretText" class="hide" style="text-align:center">minty jamun. that's all you're getting. 😌</p>
+<button class="primary full" onclick="openPage('page4')">okay, actual invite →</button>
+</section>
+
+<section class="overlay" id="page4">
+<button class="close" onclick="openPage('page3')">← previous</button>
+<div class="tag">04 / the actual thing</div>
+<div class="title">So, cutie…<br><span class="rose">you coming?</span></div>
+<div class="cardmini">
+<div class="scribble">an invitation ♡</div>
+<small>for: Lavanya</small>
+<small>from: the guy who refuses to do it akele akele now</small>
+</div>
+<div class="box">
+<div>📍 somewhere fun</div>
+<div>🕰️ when the timing is right</div>
+<div>🎀 dress code: just show up cute</div>
+</div>
+<button class="primary full" onclick="accept()">obviously, I'm coming ♡</button>
+<button class="ghost full" onclick="tease()">hmm… let me think</button>
+</section>
+
+<section class="overlay" id="page5">
+<div class="final">
+<div class="heart">♡</div>
+<div class="tag">invitation accepted</div>
+<h2>dyamnn.<br>look at you, <b>cutie.</b></h2>
+<p id="finalText">Okay, now I'm smiling at my phone. This is embarrassing.</p>
+<button class="primary full" onclick="confetti()">one tiny celebration ✨</button>
+<p style="font-size:11px;color:#625d69;margin-top:24px">You made me put effort into a whole website. Happy now?</p>
+</div>
+</section>
+
+</main></div>
+<div class="toast" id="toast"></div><button class="sound-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle sound">🔊</button>
+<script>
+function reveal(){
+ document.getElementById('reveal').innerHTML='<div>okay fine…<br><b>it’s an invite.</b> 💌<br><span style="font-size:11px">and yes, I made it myself.</span></div>';
+ document.getElementById('continue').classList.remove('hide');
+}
+function openPage(id){document.getElementById(id).classList.add('open')}
+function closePage(){document.querySelectorAll('.overlay').forEach(x=>x.classList.remove('open'))}
+function route(){
+ document.getElementById('routeSecret').classList.remove('hide');
+ toast('distance problem: temporarily solved 😌');
+}
+function secretReveal(){
+ document.getElementById('secretBox').innerHTML='<div>🫐<br><b>classified unlocked</b><br><span style="font-size:11px">you know exactly what this is.</span></div>';
+ document.getElementById('secretText').classList.remove('hide');
+}
+function accept(){openPage('page5');confetti()}
+function tease(){toast('nice try, Lavanya 👀');setTimeout(()=>openPage('page5'),700)}
+function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1700)}
+function confetti(){
+ for(let i=0;i<35;i++){
+  let s=document.createElement('span');s.className='conf';s.textContent=['♡','✦','✨','🎀','💗'][Math.floor(Math.random()*5)];
+  s.style.left='50%';s.style.top='55%';s.style.setProperty('--x',(Math.random()*420-210)+'px');s.style.setProperty('--y',(Math.random()*-500-40)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),1900)
+ }
+}
+</script>
+
+<script>
+/* ===== interactive sound design — generated with Web Audio, no external files ===== */
+let audioCtx=null, muted=false, ambientGain=null, ambientStarted=false;
+
+function audioReady(){
+  if(muted)return false;
+  if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  if(audioCtx.state==="suspended")audioCtx.resume();
+  return true;
+}
+function tone(freq,d=.08,type="sine",vol=.025,delay=0){
+  if(!audioReady())return;
+  const o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+delay;
+  o.type=type;o.frequency.value=freq;
+  g.gain.setValueAtTime(.0001,t);
+  g.gain.exponentialRampToValueAtTime(vol,t+.012);
+  g.gain.exponentialRampToValueAtTime(.0001,t+d);
+  o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+d+.03);
+}
+function noise(d=.08,vol=.012){
+  if(!audioReady())return;
+  const b=audioCtx.createBuffer(1,audioCtx.sampleRate*d,audioCtx.sampleRate),a=b.getChannelData(0);
+  for(let i=0;i<a.length;i++)a[i]=(Math.random()*2-1)*(1-i/a.length);
+  const s=audioCtx.createBufferSource(),g=audioCtx.createGain();
+  g.gain.value=vol;s.buffer=b;s.connect(g);g.connect(audioCtx.destination);s.start();
+}
+function chime(){tone(440,.08,"sine",.022);tone(660,.11,"sine",.028,.07);tone(880,.16,"sine",.023,.14)}
+function softClick(){tone(520,.045,"sine",.014)}
+function whoosh(){
+  if(!audioReady())return;
+  const o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime;
+  o.frequency.setValueAtTime(160,t);o.frequency.exponentialRampToValueAtTime(620,t+.3);
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.022,t+.04);g.gain.exponentialRampToValueAtTime(.0001,t+.31);
+  o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+.33);
+}
+function pageReveal(){tone(300,.07,"triangle",.016);tone(450,.08,"triangle",.02,.06);noise(.05,.008)}
+function mystery(){tone(330,.09,"triangle",.022);tone(495,.10,"triangle",.026,.09);tone(660,.18,"triangle",.032,.19)}
+function sparkle(){[880,1046,1318].forEach((f,i)=>tone(f,.08,"sine",.017,i*.06))}
+function heart(){tone(110,.06,"sine",.018);tone(95,.08,"sine",.016,.11)}
+function acceptTune(){tone(523,.1,"sine",.028);tone(659,.1,"sine",.032,.09);tone(784,.14,"sine",.036,.18);tone(1047,.22,"sine",.032,.29)}
+function carStart(){noise(.12,.012);tone(82,.18,"sawtooth",.025);tone(110,.35,"sawtooth",.02,.18)}
+function carMove(){tone(155,.12,"triangle",.018);tone(210,.12,"triangle",.016,.14);noise(.18,.009)}
+function brake(){tone(230,.09,"triangle",.022);tone(520,.16,"sine",.026,.10)}
+function celebrateTune(){[0,1,2,3,4].forEach(i=>tone(650+i*95,.05,"triangle",.017,i*.055))}
+
+function startAmbient(){
+  if(ambientStarted||!audioReady())return;
+  ambientStarted=true;
+  const osc=audioCtx.createOscillator(),g=audioCtx.createGain();
+  osc.type="sine";osc.frequency.value=196;g.gain.value=.00001;
+  osc.connect(g);g.connect(audioCtx.destination);
+  g.gain.exponentialRampToValueAtTime(.006,audioCtx.currentTime+1.5);
+  osc.start();
+  ambientGain=g;
+}
+function toggleSound(){
+  muted=!muted;
+  const b=document.getElementById("soundToggle");
+  b.textContent=muted?"🔇":"🔊";
+  if(!muted){audioReady();startAmbient();chime()}
+  else if(audioCtx)audioCtx.suspend();
+}
+document.addEventListener("pointerdown",()=>{if(!muted){audioReady();startAmbient()}},{once:true});
+
+const _openPage=openPage;
+openPage=function(id){
+  whoosh();
+  _openPage(id);
+  setTimeout(()=>sparkle(),180);
+};
+const _closePage=closePage;
+closePage=function(){softClick();_closePage()};
+const _reveal=reveal;
+reveal=function(){
+  pageReveal();_reveal();sparkle();burst(document.getElementById("reveal"));
+};
+const _route=route;
+route=function(){
+  carStart();
+  const car=document.querySelector(".car");
+  car.classList.remove("drive");void car.offsetWidth;car.classList.add("drive");
+  document.getElementById("routeSecret").classList.remove("hide");
+  toast("distance problem: temporarily solved 😌");
+  document.getElementById("routeSecret").querySelector("div").style.animation="secretPop .5s both";
+  setTimeout(carMove,650);setTimeout(brake,1500);
+};
+const _secret=secretReveal;
+secretReveal=function(){mystery();_secret();setTimeout(sparkle,180);burst(document.getElementById("secretBox"))};
+const _accept=accept;
+accept=function(){acceptTune();openPage("page5");setTimeout(celebrate,550)};
+const _confetti=confetti;
+confetti=function(){celebrateTune();_confetti();burst(document.querySelector(".final"))};
+function tease(){toast("nice try, Lavanya 👀");softClick();setTimeout(()=>openPage("page5"),700)}
+function celebrate(){heart();confetti()}
+function burst(el){
+  if(!el)return;
+  for(let i=0;i<10;i++){
+    const s=document.createElement("span");s.className="spark";s.textContent=["✦","·","♡","✧"][Math.floor(Math.random()*4)];
+    s.style.left="50%";s.style.top="50%";
+    s.style.setProperty("--sx",(Math.random()*150-75)+"px");
+    s.style.setProperty("--sy",(Math.random()*120-90)+"px");
+    s.style.color=Math.random()>.5?"#ff82a9":"#fff";
+    el.appendChild(s);setTimeout(()=>s.remove(),1000);
+  }
+}
+document.addEventListener("pointerdown",e=>{
+  if(e.target.closest("button")&&!e.target.closest(".sound-toggle"))softClick();
+});
+</script>
+
+</body>
+</html>
